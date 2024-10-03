@@ -19,7 +19,7 @@ disableTextInHeader = false
 mainSections = ["posts"]#, "suggestions"]
 # robots = ""
 
-defaultBackgroundImage = "/assets/img/background.svg" # used as default for background images 
+defaultBackgroundImage = "/assets/img/background.jpg" # used as default for background images 
 defaultFeaturedImage = "assets/img/background.jpg" # used as default for featured images in all articles
 
 highlightCurrentMenuArea = true
