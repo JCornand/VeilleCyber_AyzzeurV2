@@ -14,6 +14,11 @@ authors:
 k
 <img src="img/shufflecake-logo.png" alt="Shufflecake"></img>
 
+![Shufflecake](img/shufflecake-logo.svg)
+d
+<img src="img/shufflecake-logo.svg" alt="Shufflecake"></img>
+
+
 # Introduction
 
 {{< lead >}}
