@@ -6,7 +6,7 @@
 # https://nunocoracao.github.io/blowfish/docs/configuration/#theme-parameters
 
 colorScheme = "blowfish"
-defaultAppearance = "dark" # valid options: light or dark
+defaultAppearance = "ligth" # valid options: light or dark
 autoSwitchAppearance = true
 
 enableSearch = true
@@ -15,6 +15,9 @@ enableCodeCopy = true
 disableImageOptimization = false
 disableTextInHeader = false
 # backgroundImageWidth = 1200
+
+# defaultBackgroundImage = "IMAGE.jpg" # used as default for background images 
+# defaultFeaturedImage = "IMAGE.jpg" # used as default for featured images in all articles
 
 # mainSections = ["section1", "section2"]
 # robots = ""
