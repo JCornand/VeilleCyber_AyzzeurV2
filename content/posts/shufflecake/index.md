@@ -9,7 +9,6 @@ draft: false
 authors:
   - ayzzeur
 ---
-![Shufflecake](img/shufflecake-logo.svg)
 
 {{< lead >}}
 Dans un monde où la confidentialité des données est de plus en plus menacée, l’utilisation d’outils de chiffrement devient essentielle. Ces outils permettent de protéger les informations sensibles en les rendant illisibles pour toute personne non autorisée. Ils sont particulièrement précieux pour les lanceurs d’alerte, les journalistes d’investigation et les militants des droits de l’homme opérant dans des régimes oppressifs, où la sécurité des communications peut être une question de vie ou de mort. De plus, toute organisation, qu’elle soit une entreprise, une institution gouvernementale ou une ONG, a besoin d’un certain niveau de sécurité pour ses données afin de prévenir les fuites d’informations, les cyberattaques et les violations de la vie privée.
@@ -36,6 +35,8 @@ Aujourd'hui, VeraCrypt est largement utilisé par des particuliers, des entrepri
 ## Le projet
 
 Avant de commencer à utiliser Shufflecake, il est important de comprendre ses principaux concepts nous permettant de conceptualiser ses scénarios d’utilisation.
+
+![Shufflecake](img/shufflecake-logo-small.png)
 
 L’idée derrière le logo est de visualiser nos volumes en plusieurs couches qui s’ouvriraient avec un mot de passe par couche.
 
