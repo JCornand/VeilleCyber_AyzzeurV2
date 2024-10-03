@@ -12,6 +12,10 @@ autoSwitchAppearance = true
 enableSearch = true
 enableCodeCopy = true
 
+disableImageOptimization = false
+disableTextInHeader = false
+# backgroundImageWidth = 1200
+
 # mainSections = ["section1", "section2"]
 # robots = ""
 
