@@ -10,6 +10,20 @@
 # overridden by providing a weight value. The menu will then be
 # ordered by weight from lowest to highest.
 
+[[main]]
+  name = "About"
+  pageRef = "About"
+  url = "https://veillecyber-ayzzeur.pages.dev/content/about/"
+  weight = 10
+
+
+
+[[main]]
+  name = "Articles"
+  pageRef = "posts"
+  url = "https://veillecyber-ayzzeur.pages.dev/content/posts/"
+  weight = 20
+
 #[[main]]
 #  name = "Blog"
 #  pageRef = "posts"

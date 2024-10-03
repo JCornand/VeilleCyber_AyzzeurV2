@@ -2,7 +2,7 @@ languageCode = "en"
 languageName = "English"
 weight = 1
 
-title = "Blowfish"
+title = "Veille Cybersécurité by Ayzzeur"
 
 [params]
   displayName = "EN"
@@ -11,13 +11,13 @@ title = "Blowfish"
   # logo = "img/logo.png"
   description = "My awesome website"
   # copyright = "Copy, _right?_ :thinking_face:"
-  dateFormat = "2 January 2006"
+  dateFormat = "3 09 2024"
 
 [params.author]
-  name = "Your name here"
+  name = "Ayzzeur"
   image = "img/blowfish_logo.png"
-  headline = "I'm only human"
-  bio = "A little bit about you"
+  headline = "Mieux vaut penser le changement que changer le pansement"
+  bio = "Actuellement étudiant dans le domaine de la cybersécurité, je souhaite partager des outils, informations et méthodes via ces articles"
   # links = [
   #   { email = "mailto:hello@your_domain.com" },
   #   { link = "https://link-to-some-website.com/" },
