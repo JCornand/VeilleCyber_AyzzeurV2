@@ -48,12 +48,6 @@ Un des concepts est de pouvoir effectuer un deni plausible, mais qu’est-ce qu�
 
 Le **déni plausible** ou **possibilité de nier de façon plausible** (« ***plausible deniability*** »en anglais) est la possibilité, notamment dans le droit américain, pour des individus (généralement des responsables officiels dans le cadre d'une hiérarchie formelle ou informelle) de nier connaître L'existence d'actions condamnables commises par d'autres dans une organisation hiérarchique ou d'en être responsable si des preuves pouvant confirmer leur participation sont absentes, et ce même s'ils ont été personnellement impliqués ou ont volontairement ignoré ces actions.
 
-Le logiciel en soi ne peut pas être caché lors d’un scan, par contre le nombre de volumes caché quant à lui ne peut être deviné, ce qui en fait sa force.
-
-L’idée derrière le logo de l’outil est de visualiser nos volumes en plusieurs couches qui s’ouvriraient avec un mot de passe par couche.
-
-Un mot de passe permet d’accéder jusqu’à son niveau, si on a 15 niveaux et que l’on souhaite aller au 3ème, on utilisera notre 3ème mot de passe qui déverrouillera nos données sur 3 niveaux directement. On peut ainsi graduellement stocker nos informations en fonction de leurs importances.
-
 ### Qu’est-ce que l’ORAM(Oblivious Random Access Machine) ?
 
 Si l'ORAM ne vous dit rien, nous allons l'aborder lors de ce chapitre. J'ai pu découvrir ce terme lors de mes recherches pour cet article.
