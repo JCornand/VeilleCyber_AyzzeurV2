@@ -15,7 +15,7 @@ Dans un monde où la confidentialité des données est de plus en plus menacée,
 
 Le chiffrement assure que seules les personnes disposant de la clé de déchiffrement peuvent accéder aux données protégées, garantissant ainsi leur intégrité et leur confidentialité. En somme, il s’agit d’un outil indispensable pour toute entité soucieuse de la sécurité de ses informations.
 
-Au travers de l’outil de chiffrement `Shufflecake` nous allons voir comment se protéger. L’outil fonctionnant sur n’importe quel système de fichiers, écrit en C par Elia Anzuoni et Tommaso “tomgag” Gagliardonipour. Un portage vers Rust semble envisagé pour le futur, a l’heure actuel il est toujours en cours de developpement.
+Au travers de l’outil de chiffrement `Shufflecake` nous allons voir comment se protéger. L’outil fonctionnant sur n’importe quel système de fichiers, écrit en C par Elia Anzuoni et Tommaso “tomgag” Gagliardonipour. Un portage vers Rust semble envisagé pour le futur, a l’heure actuelle il est toujours en cours de developpement.
 {{< /lead >}}
 
 ## Une petite histoire...
@@ -59,7 +59,7 @@ Une des fonctions primaires d’un cloud est le partage des données, qui est li
 **une grande complexité de calcul ou une forte dépendance de primitives de cryptographie complexes** (”À la création d’un système cryptographique.
  (ou cryptosystème), le concepteur se fonde sur des briques appelées « primitives cryptographiques ». Pour cette raison, les primitives cryptographiques sont conçues pour effectuer une tâche précise et ce de la façon la plus fiable possible.”). 
 
-Dans le cas de Shufflecake, l'idée est que lorsque l'ORAM est utilisé pour accéder à un disque, alors personne, même pas une *run-time backdoor* dans le firmware du device (Une run-time backdoor est un type de programme malveillant qui permet à un attaquant d’accéder à un système informatique, de manière non autorisée pendant que le système est en cours d’exécution), ne peut connaître quel volume a été accédé et comment. Cependant, l'ORAM est extrêmement lent. Ils sont tellement lents dans les faits, que des limites théoriques précises sont connues, nous disant qu’aucun ORAM sécurisé ne peut être qu'extrêmement lent.
+Dans le cas de Shufflecake, l'idée est que lorsque l'ORAM est utilisé pour accéder à un disque, alors personne, même pas une *run-time backdoor* dans le firmware du device (Une run-time backdoor est un type de programme malveillant qui permet à un attaquant d’accéder à un système informatique, de manière non autorisée pendant que le système est en cours d’exécution), ne peut savoir quel volume à été utilisé et comment. Cependant, l'ORAM est extrêmement lent. Ils sont tellement lents dans les faits, que des limites théoriques précises sont connues, nous disant qu’aucun ORAM sécurisé ne peut être qu'extrêmement lent.
 
 ### Problèmes pour la mise en production:
 
