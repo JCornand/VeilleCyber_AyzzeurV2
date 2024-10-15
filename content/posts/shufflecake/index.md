@@ -59,7 +59,7 @@ Une des fonctions primaires d’un cloud est le partage des données, qui est li
 **une grande complexité de calcul ou une forte dépendance de primitives de cryptographie complexes** (”À la création d’un système cryptographique.
  (ou cryptosystème), le concepteur se fonde sur des briques appelées « primitives cryptographiques ». Pour cette raison, les primitives cryptographiques sont conçues pour effectuer une tâche précise et ce de la façon la plus fiable possible.”). 
 
-Dans le cas de Shufflecake, l'idée est que lorsque l'ORAM est utilisé pour accéder à un disque, alors personne, même pas une *run-time backdoor* dans le firmware du device (Une run-time backdoor est un type de programme malveillant qui permet à un attaquant d’accéder à un système informatique, de manière non autorisée pendant que le système est en cours d’exécution), ne peut savoir quel volume à été utilisé et comment. Cependant, l'ORAM est extrêmement lent. Ils sont tellement lents dans les faits, que des limites théoriques précises sont connues, nous disant qu’aucun ORAM sécurisé ne peut être qu'extrêmement lent.
+Dans le cas de Shufflecake, il a été décidé de ne pas opter pour le modèle de l'ORAM, même si l’utilisation de l’ORAM pour accéder à un disque garantit qu’aucune entité, y compris une backdoor runtime dans le firmware du dispositif (un programme malveillant permettant un accès non autorisé à un système informatique pendant son fonctionnement), ne peut déterminer quel volume a été utilisé ni comment il l’a été. Un des facteurs pour ne pas l'adopter est sa lenteur. Je suppose que la puissance de calcul requise pour son fonctionnement ne serait pas optimale pour le résultat souhaité (fonctionner sur un ordinateur "classique").
 
 ### Problèmes pour la mise en production:
 
