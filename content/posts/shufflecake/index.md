@@ -134,10 +134,10 @@ root@debian12:/shufflecake-c# cat /proc/version
 Linux version 6.1.0-27-amd64 (debian-kernel@lists.debian.org) (gcc-12 (Debian 12.2.0-14) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40) #1 SMP PREEMPT_DYNAMIC Debian 6.1.115-1 (2024-11-01)
 ```
 
-On peut voir notre disque fraichement monté
+On peut voir notre disque fraichement monté.
 ![lsblk_av](img/lsblk_av.png)
 
-On va commencer par préparer notre disque
+On va commencer par préparer notre disque.
 ```shell
 /usr/sbin/fdisk sdb
 ```
@@ -148,10 +148,10 @@ Définissez la taille, faire [enter] et encore [enter]. Cela prendra la taille p
 Tapez w pour écrire les modifications et quitter.
 ![fdisk2](img/fdisk2.png)
 
-On a notre sdb1 fraichement crée
+On a retrouve bien notre sdb1.
 ![lsblk_ap](img/lsblk_ap.png)
 
-On a notre sdb1 fraichement crée
+Maintenant on va le formater dans le type ext4 par exemple.
 ![mkfsext4](img/mkfsext4.png)
 
 On va initier notre volume, ce qui va nous créer cinq volumes chifrées dans cet exemple
@@ -166,12 +166,12 @@ Dans Shufflecake les périphériques se comportent comme si ils étaient virtuel
 root@debian12:/home/user# ls /dev/mapper/
 control  sflc_0_0  sflc_0_1
 ```
-Ces volumes nouvellement crées n'ont pas de formats, ils ont besoin d'être formaté pour être utilisé.
+Ces volumes nouvellement créés n'ont pas de formats, ils ont besoin d'être formatés pour être utilisés.
 ```shell
 /usr/sbin/mkfs.ext4 /dev/mapper/sflc_0_0
 /usr/sbin/mkfs.ext4 /dev/mapper/sflc_0_1
 ```
-Il ne reste plus que a monté le ou les volumes.
+Il ne reste plus que a monté le/les volumes.
 ```shell
 mkdir /home/user/Reportage
 mkdir /home/user/Confidentiel
@@ -185,7 +185,7 @@ nano /home/user/Reportage/article1.txt
 nano /home/user/Reportage/article2.txt
 nano /home/user/Confidentiel/code_arme_nucleaire
 ```
-On a ces documents avant fermeture
+On a l'ensemble de ces documents avant fermeture des volumes chifrées.
 ![before_closing](img/before_closing.png)
 
 Actuellement pour prévenir de possible perte de données, il faut au préalable détaché notre/nos volumes.
@@ -194,11 +194,11 @@ umount /home/user/Reportage
 umount /home/user/Confidentiel
 ```
 
-Fermeture de nos volumes
+Fermeture de nos volumes.
 ```shell
 sudo shufflecake close /dev/sdb1
 ```
-Nos fichiers sont bel et bien cachés
+Nos fichiers sont bel et bien cachés.
 ![plus_de_fichiers](img/plus_de_fichiers.png)
 
 On va venir ouvrir à nouveau nos volumes
