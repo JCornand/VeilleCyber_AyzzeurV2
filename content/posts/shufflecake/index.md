@@ -126,7 +126,7 @@ sudo rmmod dm-sflc
 ```
 ### Cas concret
 Dans ce cas d'utilisation concret de la solution, j'ai au préalable pour cette démo ajouté un disque à la vm.
-Je suis sur une vm en Debian12.8.0-amd64-netinst.iso .
+Je suis sur une vm en `Debian12.8.0-amd64-netinst.iso` .
 ```shell
 root@debian12:/shufflecake-c# cat /proc/version
 Linux version 6.1.0-27-amd64 (debian-kernel@lists.debian.org) (gcc-12 (Debian 12.2.0-14) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40) #1 SMP PREEMPT_DYNAMIC Debian 6.1.115-1 (2024-11-01)
@@ -152,11 +152,48 @@ On a notre sdb1 fraichement crée
 On a notre sdb1 fraichement crée
 ![mkfsext4](img/mkfsext4.png)
 
-On va initier notre volume, ce qui va nous créer 5 volums chifrées dans cet exemple
+On va initier notre volume, ce qui va nous créer cinq volumes chifrées dans cet exemple
 ![initiatevolume](img/initialisation_volume.png)
 
-On va ouvrir notre volume pour y mettre ou consulter des informations
+On va ouvrir notre volume pour y mettre ou consulter des informations. Ici on peut voir que seulement deux volumes sont ouverts sur les cinq. J'ai donné le mot de passe du deuxième ce qui a ouvert les 2 premières couches.
 ![open](img/volume_ouvert.png)
+
+Dans Shufflecake les périphériques se comportent comme si ils étaient virtuels. On les retrouvera donc dans "/dev/mapper/" au lieu de "/dev" par défaut.
+
+```shell
+root@debian12:/home/user# ls /dev/mapper/
+control  sflc_0_0  sflc_0_1
+```
+Ces volumes nouvellement crées n'ont pas de formats, ils ont besoin d'être formaté pour être utilisé.
+```shell
+/usr/sbin/mkfs.ext4 /dev/mapper/sflc_0_0
+/usr/sbin/mkfs.ext4 /dev/mapper/sflc_0_1
+```
+Il ne reste plus que a monté le ou les volumes.
+```shell
+mkdir /home/user/Reportage
+mkdir /home/user/Confidentiel
+mount /dev/mapper/sflc_0_0 /home/user/Reportage
+mount /dev/mapper/sflc_0_1 /home/user/Confidentiel
+```
+
+Mise en place de fichiers
+
+```shell
+nano /home/user/Reportage/article1.txt
+nano /home/user/Reportage/article2.txt
+nano /home/user/Confidentiel/code_arme_nucleaire
+```
+
+Actuellement pour prévenir de possible perte de données, il faut au préalable détaché notre/nos volumes.
+```shell
+umount /home/user/Reportage
+umount /home/user/Confidentiel
+```
+
+Fermeture de 
+sudo shufflecake close <block_device>
+Closes all the volumes currently open on a device, removing them from /dev/mapper/.
 
 
 ### Benchmarks
