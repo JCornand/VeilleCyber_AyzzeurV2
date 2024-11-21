@@ -69,7 +69,7 @@ En ce qui concerne les attaques multi-snapshot adverses (TRIM), il s’agit d’
 
 Enfin, il est crucial de noter que l’outil ne protège pas contre les trojans et les keyloggers. Les trojans sont des logiciels malveillants qui se déguisent en programmes légitimes pour infecter un système, tandis que les keyloggers enregistrent les frappes au clavier pour voler des informations sensibles comme des mots de passe. L’absence de protection contre ces menaces signifie que les utilisateurs doivent être particulièrement vigilants et utiliser des solutions de sécurité complémentaires pour se protéger.
 
-## Installation et utilisation
+## Prérequis et commandes de bases
 **Dépendances à installer**
 ```shell
 sudo apt update
@@ -210,12 +210,10 @@ On retrouve bien nos documents !
 
 
 ### Benchmarks
-
 En termes de performances que vaut l'outil ?
 Un outil qui a des performances un tout petit peu plus réduites que un système crypté dès le départ.
 
 ## Conclusion
-
 L’évolution de cet outil mérite une attention particulière, compte tenu de ses ambitions dans le domaine du chiffrement des données. Shufflecake se positionne ainsi comme un successeur prometteur de TrueCrypt, offrant des promesses de fonctionnalitées avancées et une sécurité renforcée. Son développement continu pourrait apporter des innovations significatives et répondre aux besoins croissants en matière de protection des informations sensibles.
 
 ## Webographie
