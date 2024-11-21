@@ -128,7 +128,7 @@ shufflecake changepwd <block_device>
 
 ### Cas concret
 Dans ce cas d'utilisation concret de la solution, j'ai au préalable pour cette démo ajouté un disque à la vm.
-Je suis sur une vm en `Debian12.8.0-amd64-netinst.iso` .
+Je suis sur une vm en `Debian12.8.0-amd64-netinst.iso`, la vm à 4 Go de RAM, 2 VCPU ainsi que 20 Go de RAM et un second disque de 1Go.
 ```shell
 root@debian12:/shufflecake-c# cat /proc/version
 Linux version 6.1.0-27-amd64 (debian-kernel@lists.debian.org) (gcc-12 (Debian 12.2.0-14) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40) #1 SMP PREEMPT_DYNAMIC Debian 6.1.115-1 (2024-11-01)
@@ -217,7 +217,65 @@ sudo rmmod dm-sflc
 
 ### Benchmarks
 En termes de performances que vaut l'outil ?
-Un outil qui a des performances un tout petit peu plus réduites que un système crypté dès le départ.
+Nous allons comparer trois outils: Cryptsetup, shufflecake legacy et veracrypt.
+
+Cryptsetup outil utilisé pour créer et gérer des volumes chiffrés selon le standard LUKS
+```shell
+root@debian12:/shufflecake-c/benchmark-suite# ls
+INSTRUCTIONS.md  luks-benchmark.sh  sflc-legacy-benchmark.sh  sflc-legacy-fragmentation.sh  sflc-lite-benchmark.sh  sflc-lite-fragmentation.sh	veracrypt-benchmark.sh
+root@debian12:/shufflecake-c/benchmark-suite# sudo ./luks-benchmark.sh 
+===============================================================================
+                    Benchmark Suite Script for LUKS/dm-crypt
+===============================================================================
+ 
+Now you will be asked to enter the path for a block device to be used for the 
+benchmarks (all content will be erased). If no path is provided (default
+choice), then the script will create a 1 GiB file in the current directory and 
+use it to back a loop device instead, then the file will be removed at the end.
+ 
+Please enter the path for a block device (default: none): 
+No path provided, creating a local file and loop device...
+I will now try to create a file /shufflecake-c/benchmark-suite/luks-benchmark-loop-file.img ...
+1024+0 records in
+1024+0 records out
+1073741824 bytes (1.1 GB, 1.0 GiB) copied, 15.0888 s, 71.2 MB/s
+Writing of empty file complete. I will now try to attach it to a new loop device...
+Successfully created loop device /dev/loop0 .
+OK, block device path /dev/loop0 is valid.
+Are you sure you want to proceed? All data on disk /dev/loop0 will be erased. (y/n)
+y
+Starting benchmark for LUKS/dm-crypt...
+Initializing block device /dev/loop0 as a LUKS volume...
+Action luksFormat took 13.512 seconds.
+LUKS device initialized. Opening encrypted volume...
+Action luksOpen took 2.389 seconds.
+LUKS volume opened as /dev/mapper/luks-test. Formatting with ext4...
+mke2fs 1.47.0 (5-Feb-2023)
+Volume /dev/mapper/ formatted. Mounting that...
+Volume mounted at /shufflecake-c/benchmark-suite/luks_mnt. Starting fio tests...
+Test 01: random read with a queue of 32 4kiB blocks on a file (20s)...
+./luks-benchmark.sh: line 173: fio: command not found
+
+Test 02: random write with a queue of 32 4kiB blocks on a file (20s)...
+./luks-benchmark.sh: line 177: fio: command not found
+
+Test 03: sequential read with a queue of 32 4kiB blocks on a file (20s)...
+./luks-benchmark.sh: line 181: fio: command not found
+
+Test 04: sequential write with a queue of 32 4kiB blocks on a file (20s)...
+./luks-benchmark.sh: line 185: fio: command not found
+
+LUKS/dm-crypt fio tests ended. Unmounting volume.
+Volume unmounted. Closing LUKS device...
+Action close took 0.076 seconds.
+Exiting and cleaning...
+Detaching /dev/loop0 ...
+Deleting /shufflecake-c/benchmark-suite/luks-benchmark-loop-file.img ...
+Loop device detached and backing file deleted.
+```
+```shell
+
+```
 
 ## Conclusion
 L’évolution de cet outil mérite une attention particulière, compte tenu de ses ambitions dans le domaine du chiffrement des données. Shufflecake se positionne ainsi comme un successeur prometteur de TrueCrypt, offrant des promesses de fonctionnalitées avancées et une sécurité renforcée. Son développement continu pourrait apporter des innovations significatives et répondre aux besoins croissants en matière de protection des informations sensibles.
