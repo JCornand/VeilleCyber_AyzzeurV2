@@ -81,7 +81,7 @@ sudo apt install linux-headers-$(uname -r) libdevmapper-dev libgcrypt-dev make g
 
 **On récupère les binaires de ShuffleCake**
 ```shell
-git clone [https://codeberg.org/shufflecake/shufflecake-c.git](https://codeberg.org/shufflecake/shufflecake-c.git)
+git clone https://codeberg.org/shufflecake/shufflecake-c.git
 ```
 
 **Il faut chargé le module kernel**`dm-sflc`
@@ -104,7 +104,7 @@ sudo cp ./shufflecake /usr/bin/
 
 sudo chown 777 /usr/bin/shufflecake
 ```
-
+Commandes principales pour l'utilisation de l'outil et choses à connaitre
 **Préparation du volume chiffré**
 ```shell
 sudo shufflecake init <block_device>
@@ -124,6 +124,40 @@ sudo shufflecake close <block_device>
 ```shell
 sudo rmmod dm-sflc
 ```
+### Cas concret
+Dans ce cas d'utilisation concret de la solution, j'ai au préalable pour cette démo ajouté un disque à la vm.
+Je suis sur une vm en Debian12.8.0-amd64-netinst.iso .
+```shell
+root@debian12:/shufflecake-c# cat /proc/version
+Linux version 6.1.0-27-amd64 (debian-kernel@lists.debian.org) (gcc-12 (Debian 12.2.0-14) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40) #1 SMP PREEMPT_DYNAMIC Debian 6.1.115-1 (2024-11-01)
+```
+
+On peut voir notre disque fraichement monté
+![lsblk_av](img/lsblk_av.png)
+
+On va commencer par préparer notre disque
+```shell
+/usr/sbin/fdisk sdb
+```
+Tapez n pour créer une nouvelle partition.
+Sélectionnez p pour une partition primaire.
+Choisissez 1 pour le numéro de partition.
+Définissez la taille, faire [enter] et encore [enter]. Cela prendra la taille par défaut.
+Tapez w pour écrire les modifications et quitter.
+![fdisk2](img/fdisk2.png)
+
+On a notre sdb1 fraichement crée
+![lsblk_ap](img/lsblk_ap.png)
+
+On a notre sdb1 fraichement crée
+![mkfsext4](img/mkfsext4.png)
+
+On va initier notre volume, ce qui va nous créer 5 volums chifrées dans cet exemple
+![initiatevolume](img/initialisation_volume.png)
+
+On va ouvrir notre volume pour y mettre ou consulter des informations
+![open](img/volume_ouvert.png)
+
 
 ### Benchmarks
 
