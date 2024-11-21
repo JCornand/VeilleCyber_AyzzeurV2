@@ -69,7 +69,7 @@ En ce qui concerne les attaques multi-snapshot adverses (TRIM), il s’agit d’
 
 Enfin, il est crucial de noter que l’outil ne protège pas contre les trojans et les keyloggers. Les trojans sont des logiciels malveillants qui se déguisent en programmes légitimes pour infecter un système, tandis que les keyloggers enregistrent les frappes au clavier pour voler des informations sensibles comme des mots de passe. L’absence de protection contre ces menaces signifie que les utilisateurs doivent être particulièrement vigilants et utiliser des solutions de sécurité complémentaires pour se protéger.
 
-## Prérequis et commandes de bases
+## Prérequis
 **Dépendances à installer**
 ```shell
 sudo apt update
@@ -104,7 +104,8 @@ sudo cp ./shufflecake /usr/bin/
 
 sudo chown 777 /usr/bin/shufflecake
 ```
-Commandes principales pour l'utilisation de l'outil et choses à connaitre
+
+### Commandes principales pour l'utilisation de l'outil
 **Préparation du volume chiffré**
 ```shell
 sudo shufflecake init <block_device>
@@ -119,11 +120,12 @@ sudo shufflecake open <block_device>
 ```shell
 sudo shufflecake close <block_device>
 ```
-
-**Après utilisation de l'outil on peut enlever le module** `dm-sflc`
+**Changement du mot de passe**
+Il faut saisir le mot de passe actuel et ensuite remplacer par un nouveau.
 ```shell
-sudo rmmod dm-sflc
+shufflecake changepwd <block_device>
 ```
+
 ### Cas concret
 Dans ce cas d'utilisation concret de la solution, j'ai au préalable pour cette démo ajouté un disque à la vm.
 Je suis sur une vm en `Debian12.8.0-amd64-netinst.iso` .
@@ -208,6 +210,10 @@ mount /dev/mapper/sflc_0_1 /home/user/Confidentiel
 On retrouve bien nos documents !
 ![final](img/final.png)
 
+**Après utilisation de l'outil on peut enlever le module** `dm-sflc`
+```shell
+sudo rmmod dm-sflc
+```
 
 ### Benchmarks
 En termes de performances que vaut l'outil ?
