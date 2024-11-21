@@ -183,6 +183,8 @@ nano /home/user/Reportage/article1.txt
 nano /home/user/Reportage/article2.txt
 nano /home/user/Confidentiel/code_arme_nucleaire
 ```
+On a ces documents avant fermeture
+![before_closing](img/before_closing.png)
 
 Actuellement pour prévenir de possible perte de données, il faut au préalable détaché notre/nos volumes.
 ```shell
@@ -194,6 +196,17 @@ Fermeture de nos volumes
 ```shell
 sudo shufflecake close /dev/sdb1
 ```
+Nos fichiers sont bel et bien cachés
+![plus_de_fichiers](img/plus_de_fichiers.png)
+
+On va venir ouvrir à nouveau nos volumes
+```shell
+shufflecake open /dev/sdb1
+mount /dev/mapper/sflc_0_0 /home/user/Reportage
+mount /dev/mapper/sflc_0_1 /home/user/Confidentiel
+```
+On retrouve bien nos documents !
+![final](img/final.png)
 
 
 ### Benchmarks
