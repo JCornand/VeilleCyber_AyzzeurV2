@@ -178,7 +178,6 @@ mount /dev/mapper/sflc_0_1 /home/user/Confidentiel
 ```
 
 Mise en place de fichiers
-
 ```shell
 nano /home/user/Reportage/article1.txt
 nano /home/user/Reportage/article2.txt
@@ -191,9 +190,10 @@ umount /home/user/Reportage
 umount /home/user/Confidentiel
 ```
 
-Fermeture de 
-sudo shufflecake close <block_device>
-Closes all the volumes currently open on a device, removing them from /dev/mapper/.
+Fermeture de nos volumes
+```shell
+sudo shufflecake close /dev/sdb1
+```
 
 
 ### Benchmarks
