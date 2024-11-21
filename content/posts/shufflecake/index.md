@@ -4,7 +4,7 @@ description: "Outil de déni plausible pour de multiples systèmes de fichiers c
 summary: "Outil de déni plausible pour de multiples systèmes de fichiers cachés sous Linux."
 categories: ["Chiffrement", "Linux"]
 tags: ["Outil", "Beta", "Test"]
-date: 2024-11-21
+date: 2024 11 21
 draft: false
 authors:
   - ayzzeur
