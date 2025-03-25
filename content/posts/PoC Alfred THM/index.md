@@ -163,17 +163,21 @@ start filouterie.exe
 whoami /priv
 ```
 
-Vous pouvez voir que deux privilèges (SeDebugPrivilege, SeImpersonatePrivilege) sont activés. 
+Vous pouvez voir deux privilèges **SeDebugPrivilege, SeImpersonatePrivilege **sont activés. 
 
 EXPLICATION DES PRIVILEGES windows
 
-SeImpersonatePrivilege<-Celui qui nous intéresse
+`SeImpersonatePrivilege`<-Celui qui nous intéresse
 
-Le droit d’utilisateur « Emprunter l’identité d’un client après l’authentification » (SeImpersonatePrivilege). Par défaut, les membres du groupe Administrateurs locaux de l’appareil et du compte de service local de l’appareil reçoivent le droit d’utilisateur « Emprunter l’identité d’un client après l’authentification ».
+Est le droit d’utilisateur *« Emprunter l’identité d’un client après l’authentification »* (SeImpersonatePrivilege).
+
+Par défaut, les membres du groupe Administrateurs locaux de l’appareil et du compte de service local de l’appareil reçoivent le droit d’utilisateur *« Emprunter l’identité d’un client après l’authentification »*.
 
 EXPLICATION DE INCOGNITO ET VARIANTS COMME ROTEN POTATO
-Pour l’élévation des privilèges sur windows, il y a une suite d’outils patates,
-Hot potatoes, Rotten potatoes, Lonely potatoes, Juicy potatoes, Rogue potatoes, Sweet potatoes & Generic potatoes. Le but est de passer du compte Windows Service Accounts à NT AUTHORITY/SYSTEM.
+Pour l’élévation des privilèges sur windows, il y a une suite d’outils patates:
+*Hot potatoes, Rotten potatoes, Lonely potatoes, Juicy potatoes, Rogue potatoes, Sweet potatoes & Generic potatoes*. 
+
+Le but est de passer du compte Windows Service Accounts à **NT AUTHORITY/SYSTEM**.
 
 En gros, le module Incognito est un dérivé de la série des potatoes et permet de voler des jetons de la même manière que le vol de cookies web, en rejouant cette clé temporaire lorsqu'on lui demande de s'authentifier.
 
@@ -197,7 +201,7 @@ getuid
 
 
 Même si on a avez un jeton de privilège supérieur, on ne disposerait peut-être pas des droits d'un utilisateur privilégié (ceci est dû à la façon dont Windows gère les autorisations - elle utilise le jeton primaire du processus et non le jeton usurpé pour déterminer ce que le processus peut ou ne peut pas faire). Il faut migrer vers un processus avec des autorisations répondant à notre besoin. Le processus correspondant est le processus services.exe. Tout d'abord, la commande ps pour afficher les processus et trouver le PID du processus services.exe 
-Migrer vers ce processus en utilisant la commande '...'. 
+Migrer vers ce processus en utilisant la commande: 
 ```shell
 ps
 migrate pid
