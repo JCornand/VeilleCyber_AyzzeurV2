@@ -57,24 +57,30 @@ Apprenti administrateur systèmes et réseaux de septembre 2022 à septembre 202
 
 # Diplômes et Formations
 Master en alternance manager en infrastructures et cybersécurité
+
 D'octobre 2023 à septembre 2025 Cesi Aix-en-Provence
 
 Licence en alternance Administrateur systèmes et réseaux
+
 D'octobre 2022 à septembre 2023 Cesi Aix-en-Provence
-Passage de la certication CCNA
-Administration avancée Windows Serveur
-Linux Initiation au DevOPS (Docker - Ansible)
-Méthode analyse de risque AMDEC et EBIOS RM
-Gestion de Projet. Agile, Kanban, RACI, GANTT
+
+Passage de la certication CCNA,
+Administration avancée Windows Serveur,
+Linux Initiation au DevOPS (Docker - Ansible),
+Méthode analyse de risque AMDEC et EBIOS RM,
+Gestion de Projet. Agile, Kanban, RACI, GANTT,
 
 BTS Système numérique en informatique et réseaux
 De septembre 2020 à juillet 2022 Lycée Jean Perrin Marseille
 
 DUT Réseaux et Télécommunications
+
 De septembre 2019 à juillet 2020
+
 Institut Universitaire de Technologie d’Aix-Marseille Université Marseille, Luminy
 
 Baccalauréat STI, Sciences et Technologies Industrielles
+
 De septembre 2018 à juillet 2019 Jean Perrin Marseille
 
 # Centres d'intérêt
