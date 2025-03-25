@@ -7,7 +7,7 @@ theme = "blowfish"
 defaultContentLanguage = "en"
 
 enableRobotsTXT = true
-paginate = 20
+pagerSize = 20
 summaryLength = 30
 
 buildDrafts = false
