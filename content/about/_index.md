@@ -18,7 +18,7 @@ Mes compétences
 | **Hardware**       | Électronique (analogique/numérique) | Microcontrôleurs                               | Liaison série                   | Bus I2C |
 | **Certification**  | CCNA 1-2-3                          | HarfangLab                                     |  |         |
 
-# Mes Experiences
+# Mes Expériences
 Apprenti Ingénieur cybersécurité sur la periode de décembre 2023 à septembre 2025
 
 Périmètre d'intervention IT & OT
