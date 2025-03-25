@@ -8,11 +8,11 @@ Curieux et rigoureux, j’éprouve un intérêt particulier depuis plusieurs ann
 <img src="https://tryhackme-badges.s3.amazonaws.com/Ayzzeur.png" alt="Your Image Badge" />
 Mon profil TryHackMe au lien suivant:https://tryhackme.com/p/Ayzzeur
 
-#Mes compétences
 
-| **Administration** | Unix/Windows                        | Contenarisation:Docker                         | BDD:Oracle,PostgreSQL           | EDR's   |
+Mes compétences
 |--------------------|-------------------------------------|------------------------------------------------|---------------------------------|---------|
-| **Réseau**         | Basique                             | Téléphonie IP (Aastra, Grandstream, softphone) |                                 |         |
+| **Administration** | Unix/Windows                        | Contenarisation:Docker                         | BDD:Oracle,PostgreSQL           | EDR's   |
+| **Réseau**         | Basique     |                        | Téléphonie IP (Aastra, Grandstream, softphone) |                                 |         |
 | **Virtualisation** | VMware ESXI                         | Proxmox                                        | Qemu/Libvirt                    |         |
 | **Dévellopement**  | C                                   | C++                                            | Python                          | Go      |
 | **Hardware**       | Électronique (analogique/numérique) | Microcontrôleurs                               | Liaison série                   | Bus I2C |
