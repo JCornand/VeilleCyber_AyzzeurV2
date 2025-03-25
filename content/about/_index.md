@@ -24,19 +24,18 @@ Apprenti Ingénieur cybersécurité sur la periode de décembre 2023 à septembr
 
 Périmètre d'intervention IT & OT
 
-- Gestion de la conformité aux normes de sécurité et
+- Gestion de la conformité aux normes de sécurité
   
 - Participation à des audits de sécurité réguliers
-  
+
 - Collaboration avec l'équipe IT & pour la mise en place de mesures de protection
-  
   avancées contre les cybermenaces
   
 - Administration d'EDR
   
-- Formation d'utilisateurs à la cybersécurité
+- Formation de collaborateurs à la cybersécurité
   
-- Phishing
+- Organisation de campagnes de phishing
   
 - Analyse et réponse à incident
   
@@ -78,13 +77,9 @@ Baccalauréat STI, Sciences et Technologies Industrielles
 De septembre 2018 à juillet 2019 Jean Perrin Marseille
 
 # Centres d'intérêt
-Membre d'une association
-cyber
-Association Hack in Provence
+Membre d'une association cyber association Hack in Provence
 
-Vice-président d'un club de
-tennis
-Je m'occupe de la gestion d'un club de tennis dans les Alpes.
+Vice-président d'un club de tennis. Je m'occupe de la gestion d'un club de tennis dans les Alpes.
 
 Loisirs
 
