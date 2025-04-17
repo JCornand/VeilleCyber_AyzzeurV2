@@ -21,7 +21,7 @@ Tableau des compétences
 | **Certification**  | CCNA 1-2-3                          | HarfangLab                                     |  |         |
 
 # Mes Expériences
-Apprenti Ingénieur cybersécurité sur la periode de décembre 2023 à septembre 2025
+## Apprenti Ingénieur cybersécurité sur la periode de décembre 2023 à septembre 2025
 
 Périmètre d'intervention IT & OT
 
@@ -43,7 +43,7 @@ Périmètre d'intervention IT & OT
 - Administration de Bastion
   
 
-Apprenti administrateur systèmes et réseaux de septembre 2022 à septembre 2023
+## Apprenti administrateur systèmes et réseaux de septembre 2022 à septembre 2023
 
 - Administration de bases de données : Oracle, Mysql, MariaDB, MSSQL,PostgreSQL
   
@@ -88,9 +88,12 @@ Membre d'une association cyber association Hack in Provence
 
 Vice-président d'un club de tennis. Je m'occupe de la gestion d'un club de tennis dans les Alpes.
 
-Loisirs
+## Loisirs
 
 Boxe thaïlandaise
+
 Escalade en bloc et voie
+
 Tennis loisir, tournois régionaux
+
 Escrime tournois régionaux, tous les blasons 
