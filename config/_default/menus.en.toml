@@ -11,7 +11,7 @@
 # ordered by weight from lowest to highest.
 
 [[main]]
-  name = "About"
+  name = "À propos"
   pageRef = "About"
   url = "https://veillecyber-ayzzeur.pages.dev/content/about/"
   weight = 10
@@ -20,6 +20,12 @@
   name = "Articles"
   pageRef = "posts"
   url = "https://veillecyber-ayzzeur.pages.dev/content/posts/"
+  weight = 20
+
+[[main]]
+  name = "Glossaire"
+  pageRef = "glossaire"
+  url = "https://veillecyber-ayzzeur.pages.dev/content/glossaire/"
   weight = 20
 
 #[[main]]

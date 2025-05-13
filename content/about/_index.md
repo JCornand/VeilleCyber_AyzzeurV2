@@ -1,5 +1,5 @@
 ---
-title: "A propos"
+title: "À propos"
 description: "Mon profil"
 date: 2024-09-24
 ---
