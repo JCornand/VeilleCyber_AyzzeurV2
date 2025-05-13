@@ -1,7 +1,7 @@
 ---
 title: "Glossaire"
 description: "Glossaire informatique général"
-date: 2025-17-04
+date: 2025-04-17
 ---
 *Cornand julien*
 
