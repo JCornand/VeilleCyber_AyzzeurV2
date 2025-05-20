@@ -273,9 +273,6 @@ Detaching /dev/loop0 ...
 Deleting /shufflecake-c/benchmark-suite/luks-benchmark-loop-file.img ...
 Loop device detached and backing file deleted.
 ```
-```shell
-
-```
 
 ## Conclusion
 L’évolution de cet outil mérite une attention particulière, compte tenu de ses ambitions dans le domaine du chiffrement des données. Shufflecake se positionne ainsi comme un successeur prometteur de TrueCrypt, offrant des promesses de fonctionnalitées avancées et une sécurité renforcée. Son développement continu pourrait apporter des innovations significatives et répondre aux besoins croissants en matière de protection des informations sensibles.
