@@ -1,4 +1,4 @@
- ---
+---
 title: "Alfred THM cybermois"
 description: "Exploitation de Jenkins pour obtenir un shell initial, puis obtention de meilleurs privilèges en exploitant les jetons d'authentification Windows."
 summary: "Exploitation de Jenkins pour obtenir un shell initial, puis obtention de meilleurs privilèges en exploitant les jetons d'authentification Windows."
@@ -8,7 +8,7 @@ date: 2025-03-25
 draft: false
 authors:
   - ayzzeur
----
+  ---
 
 {{< lead >}}
 
@@ -297,7 +297,6 @@ getsystem
 ```
 
 Bleu c’est beacon rouge c’est interactif
-
 
 # Conclusion
 
