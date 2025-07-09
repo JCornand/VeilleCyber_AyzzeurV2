@@ -61,9 +61,6 @@ A noter, on est sur une machine windows
 Un petit tour sur l’ip
 
 
-
-
-
 # Accès Initial via Jenkins
 On atterri sur Jenkins qui est un outil d'automatisation open source, principalement utilisé pour l'intégration continue et la livraison continue (CI/CD).
 
@@ -166,7 +163,7 @@ Après obtention d’une session Meterpreter, l’objectif est de passer de user
 whoami /priv
 ```
 
-Vous pouvez voir deux privilèges **SeDebugPrivilege, SeImpersonatePrivilege **sont activés. 
+On peut voir deux privilèges **SeDebugPrivilege, SeImpersonatePrivilege** sont activés. 
 
 EXPLICATION DES PRIVILEGES windows
 
@@ -176,7 +173,8 @@ Est le droit d’utilisateur *« Emprunter l’identité d’un client après l�
 
 Par défaut, les membres du groupe Administrateurs locaux de l’appareil et du compte de service local de l’appareil reçoivent le droit d’utilisateur *« Emprunter l’identité d’un client après l’authentification »*.
 
-EXPLICATION DE INCOGNITO ET VARIANTS COMME ROTEN POTATO
+Explication du module incognito et ses variants.
+
 Pour l’élévation des privilèges sur windows, il y a une suite d’outils patates:
 *Hot potatoes, Rotten potatoes, Lonely potatoes, Juicy potatoes, Rogue potatoes, Sweet potatoes & Generic potatoes*. 
 
@@ -184,12 +182,12 @@ Le but est de passer du compte Windows Service Accounts à **NT AUTHORITY/SYSTEM
 
 En gros, le module Incognito est un dérivé de la série des potatoes et permet de voler des jetons de la même manière que le vol de cookies web, en rejouant cette clé temporaire lorsqu'on lui demande de s'authentifier.
 
-Pour faire en automatique tout ça
+Pour faire en automatique le déroulement des opérations, la commande suivante peut faire les étapes décrites dessous.
 ```shell
 get system
 ```
 
-POUR LA DEMO
+Pour la démo et voir ce qu'il se passe précisément.
 
 Dans la console meterpreter
 ```shell
@@ -231,8 +229,9 @@ Un serveur de commande et de contrôle (C&C) est un composant essentiel dans l'i
 https://github.com/BishopFox/sliver
 
 Si sliver est déjà installé, il faut démarrer le service
+```shell
 systemctl start sliver
-
+```
 
 Installation + paramétrage de sliver
 ```shell
@@ -278,14 +277,11 @@ ls
 tasks
 ```
 
-
-
 Beacon a session interactive il crée automatiquement une session interactive en plus du beacon
 ```shell
 Interactive
 Use id
 ```
-
 
 Interractions en shell windows (machine infecte)
 ```shell
@@ -296,7 +292,12 @@ exit
 getsystem
 ```
 
-Bleu c’est beacon rouge c’est interactif
+Les Beacons :
+
+Bleu : Le beacon est en mode "beaconing" classique. Il fonctionne de manière discrète, en contactant périodiquement le serveur C2 selon un intervalle défini (par exemple, toutes les 60 secondes). Ce mode est conçu pour minimiser la détection, car il limite la fréquence des communications et n’exécute des commandes que lors de ses cycles programmés. On est vraiment sur de l'attaque plus discrète et automatisé.
+
+Rouge : Le beacon est en mode interactif. Cela signifie qu’une session interactive (comme un shell ou une session de commande) est ouverte avec l’implant. Dans ce mode, les commandes sont envoyées et exécutées en temps réel, ce qui permet une interaction directe avec la machine compromise. Ce mode est plus bruyant et plus susceptible d’être détecté par des solutions de sécurité, car il implique des échanges réseau plus fréquents.
+
 
 # Conclusion
 
