@@ -13,19 +13,19 @@
 [[main]]
   name = "À propos"
   pageRef = "About"
-  url = "https://veillecyber-ayzzeur.pages.dev/content/about/"
+  url = "https://veillecyber-ayzzeurv2.pages.dev/content/about/"
   weight = 10
 
 [[main]]
   name = "Articles"
   pageRef = "posts"
-  url = "https://veillecyber-ayzzeur.pages.dev/content/posts/"
+  url = "https://veillecyber-ayzzeurv2.pages.dev/content/posts/"
   weight = 20
 
 [[main]]
   name = "Glossaire"
   pageRef = "glossaire"
-  url = "https://veillecyber-ayzzeur.pages.dev/content/glossaire/"
+  url = "https://veillecyber-ayzzeurv2.pages.dev/content/glossaire/"
   weight = 20
 
 #[[main]]
