@@ -16,6 +16,8 @@ authors:
 Au travers deAu travers de la plateforme `Tryhackme` je vais vous faire part de ma résolution de la boxe **Alfred**. J'ai effectué la résolution de celle-ci devant plusieurs collaborateurs, dans le but de les sensibiliser aux problématiques de cybersécurité lors du cyber mois.
 {{< /lead >}}
 
+![Shufflecake](img/Jenkins_logo.svg.png)
+
 # Informations
 Jenkins est un outil d'automatisation open source, principalement utilisé pour l'intégration continue et la livraison continue (CI/CD). 
 
