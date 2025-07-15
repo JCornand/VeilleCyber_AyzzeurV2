@@ -12,9 +12,7 @@ featured: "Jenkins_logo.png"
 ---
 
 {{< lead >}}
-
-
-Au travers deAu travers de la plateforme `Tryhackme` je vais vous faire part de ma résolution de la boxe **Alfred**. J'ai effectué la résolution de celle-ci devant plusieurs collaborateurs, dans le but de les sensibiliser aux problématiques de cybersécurité lors du cyber mois.
+Au travers de la plateforme `Tryhackme` je vais vous faire part de ma résolution de la boxe **Alfred**. J'ai effectué la résolution de celle-ci devant plusieurs collaborateurs, dans le but de les sensibiliser aux problématiques de cybersécurité lors du cyber mois.
 {{< /lead >}}
 
 ![Jenkins](img/Jenkins_logo.svg.png)
