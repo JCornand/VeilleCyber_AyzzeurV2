@@ -8,6 +8,7 @@ date: 2025-03-25
 draft: false
 authors:
   - ayzzeur
+featured: "Jenkins_logo.png"
 ---
 
 {{< lead >}}
