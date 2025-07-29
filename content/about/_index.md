@@ -84,16 +84,18 @@ Baccalauréat STI, Sciences et Technologies Industrielles
 De septembre 2018 à juillet 2019 Jean Perrin Marseille
 
 # Centres d'intérêt
-Membre d'une association cyber association Hack in Provence
+Membre d'une association cyber : Hack in Provence
 
 Vice-président d'un club de tennis. Je m'occupe de la gestion d'un club de tennis dans les Alpes.
 
 ## Loisirs
 
+JJB :white_square::black_square::white_square:
+
 Boxe thaïlandaise
 
-Escalade en bloc et voie
+Escalade en bloc et voie 5c
 
-Tennis loisir, tournois régionaux
+Tennis loisir, tournois régionaux classement 30
 
 Escrime tournois régionaux, tous les blasons 
