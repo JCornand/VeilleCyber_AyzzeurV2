@@ -90,7 +90,7 @@ Vice-président d'un club de tennis. Je m'occupe de la gestion d'un club de tenn
 
 ## Loisirs
 
-JJB :white_square::black_square::white_square:
+JJB ◻️◼️◻️ 🇧🇷
 
 Boxe thaïlandaise
 
