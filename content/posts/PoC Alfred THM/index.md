@@ -306,3 +306,5 @@ Les Beacons :
 Ce PoC démontre qu’un Jenkins mal sécurisé peut ouvrir la voie à une compromission critique du système. En combinant Metasploit et Sliver, nous avons exploré toutes les étapes d’une attaque offensive moderne, du simple accès jusqu’à la post-exploitation avancée.
 
 La box Alfred de THM s’est révélée être un excellent support pédagogique pour sensibiliser les collaborateurs aux risques réels d'une mauvaise configuration dans un environnement Windows.
+
+Verif tout
